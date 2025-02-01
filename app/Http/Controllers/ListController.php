@@ -1,28 +1,42 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Lists;
 
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\returnSelf;
 
 class ListController extends Controller
 {
     // tampil list
     public function index(){
 
-        $judul = "INI DASHBOARD";
+        // $lists = Lists::all();
+
+        // return $lists;
+        return view('task.index');
 
         // parsing data
-        return view("task.index", ["data" => $judul]);
+        
     }
 
     // tambah list
     public function tambah(){
-        echo "hallo, ini tambah";
+       
     }
 
     // proses masukkan ke database
-    public function store(){}
-
+    public function store(){
+       Lists::create([
+        "nama" => "Tugas Bu Rinda"
+       ]);
+    }
+    
     // menghapus list
-    public function hapus(){}
+    public function hapus($id){
+        $data = Lists::find($id);
+
+        $data->delete();
+    }
 }

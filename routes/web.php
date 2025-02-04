@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 // arahkan ke controller
 Route::get('/sidebar', [ListController::class, "index"]);
-Route::get('/tambahlist', [ListController::class, "store"]);
+Route::post('/tambahlist', [ListController::class, "store"]);
 Route::get('/hapuslist/{id}', [ListController::class, "hapus"]);

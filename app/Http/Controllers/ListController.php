@@ -27,10 +27,16 @@ class ListController extends Controller
     }
 
     // proses masukkan ke database
-    public function store(){
-       Lists::create([
-        "nama" => "Tugas Bu Rinda"
-       ]);
+    public function store(Request $request){
+        
+            $list = new Lists;
+            $list-> nama = $request->nama_list;
+            $list->save();
+
+            return redirect()->back();
+    //    Lists::create([
+    //     "nama" => "Tugas Bu Rinda"
+    //    ]);
     }
     
     // menghapus list

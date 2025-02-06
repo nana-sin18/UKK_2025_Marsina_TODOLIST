@@ -136,7 +136,7 @@
         <h5 class="submenu-title">My project</h5>
         <ul class="submenu">
           @foreach ($lists as $Lists )
-          <li class="mb-5"><a href={{url("list")}}>{{ $Lists->nama }}</a>
+          <li class="mb-5"><a href="/list/{{$Lists->id}}">{{ $Lists->nama }}</a>
             <form action={{ url("hapuslist/$Lists->id")}} method="POST">
             @method("DELETE")
             @csrf

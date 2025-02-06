@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Lists;
+use App\Models\tsak;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ListController extends Controller
         // $lists = Lists::all();
 
         // return $lists;
-        return view('task.index');
+        return view('layout.tampilanlist');
 
         // parsing data
         
@@ -24,6 +25,14 @@ class ListController extends Controller
     // tambah list
     public function tambah(){
        
+    }
+
+    public function show($id){
+        $lists = Lists::find($id);
+      
+       $task = tsak::where("id_list", $id)->get();
+
+       return view("task.index", ["data" => $lists, "todo" =>$task]);
     }
 
     // proses masukkan ke database
@@ -44,5 +53,6 @@ class ListController extends Controller
         $data = Lists::find($id);
 
         $data->delete();
+        return redirect()->back();
     }
 }

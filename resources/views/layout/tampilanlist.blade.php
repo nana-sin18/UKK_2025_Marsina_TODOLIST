@@ -131,14 +131,19 @@
       </div>
     </div>
 
-
-
     <ul>
       <li>
         <h5 class="submenu-title">My project</h5>
         <ul class="submenu">
           @foreach ($lists as $Lists )
-          <p>{{ $Lists->nama}}</p>
+          <li class="mb-5"><a href={{url("list")}}>{{ $Lists->nama }}</a>
+            <form action={{ url("hapuslist/$Lists->id")}} method="POST">
+            @method("DELETE")
+            @csrf
+            <button class= "btn btn-danger btn-sm">HAPUS</button>
+          </form>
+          </li>
+          
           @endforeach
         </ul>
       </li>

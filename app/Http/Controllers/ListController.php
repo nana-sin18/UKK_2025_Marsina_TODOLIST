@@ -28,11 +28,10 @@ class ListController extends Controller
     }
 
     public function show($id){
-        $lists = Lists::find($id);
-      
+        $lists = Lists::find($id);  
+       
        $task = tsak::where("id_list", $id)->get();
-
-       return view("task.index", ["data" => $lists, "todo" =>$task]);
+       return view("task.index", ["data" => $lists, "todo" =>$task, "id_list"=>$lists->id]);
     }
 
     // proses masukkan ke database

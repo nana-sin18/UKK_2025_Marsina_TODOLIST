@@ -54,4 +54,34 @@ class ListController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    // edit list
+    //belumm di edit
+    public function edit(string $id)
+    {
+        $listedit = Lists::find($id);
+        return view("layout.editlist", ["lists" => $listedit]);
+    }
+    
+
+
+    public function update(Request $request, string $id)
+    {
+        $listedit = Lists::find($id);  // Mencari list berdasarkan ID
+    
+        if (!$listedit) {
+            return "hai";  // Kalau list tidak ditemukan, redirect ke daftar
+        }
+    
+        // Ambil input data dari form
+        $data = [
+            "nama" => $request->input("nama"),
+        ];
+    
+        // Melakukan update data
+        $listedit->update($data);
+    
+        // Redirect ke halaman list yang sudah diperbarui
+        return redirect("/");
+    }
 }

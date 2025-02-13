@@ -138,9 +138,11 @@
           @foreach ($lists as $Lists )
           <li class="mb-5"><a href="/list/{{$Lists->id}}">{{ $Lists->nama }}</a>
             <form action={{ url("hapuslist/$Lists->id")}} method="POST">
+              
             @method("DELETE")
             @csrf
             <button class= "btn btn-danger btn-sm">HAPUS</button>
+            <a href="{{ url("/list/$Lists->id_list/editlist") }}" class="btn btn-outline-success btn-sm">Edit</a>
           </form>
           </li>
           

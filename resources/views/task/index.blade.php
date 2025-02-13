@@ -5,7 +5,12 @@
     <h1> {{ $data->nama}} </h1>
     <ul>
         @foreach ($todo as $task )
-        <li>{{$task->nama}}</li>
+        <list style="text-decoration : <?= $task->status == "selesai" ? "line-through" : "none" ?> ">
+       {{$task->nama}}
+        </list>
+        <list>
+          {{$task->tanggal}}
+        </list>
         <form action={{url("hapustask/$task->id_task")}} method="POST">
             @method("DELETE")
             @csrf
@@ -33,9 +38,12 @@
                     @csrf
             <div class="modal-body">
               <div class="input-group flex-nowrap">
-              <input type="text" class="form-control" aria-describedby="addon-wrapping" name="nama_task">
+                <label for="nama_task" class="form-label">Nama Task</label>
+              <input type="text" class="form-control" aria-describedby="addon-wrapping" name="nama_task" placeholder="nama">
+              <label for="date" class="form-label">Tanggal</label>
               <input type="date" class="form-control" aria-describedby="addon-wrapping" name="date">
               <input type="hidden" class="form-control" aria-describedby="addon-wrapping" name="id" value={{$id_list}}>
+              <label for="prioritas" class="form-label">Prioritas</label>
               <select name="prioritas" id="prioritas">
                   <option value="1">1</option>
                   <option value="2">2</option>

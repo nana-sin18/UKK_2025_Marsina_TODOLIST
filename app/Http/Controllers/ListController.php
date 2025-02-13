@@ -60,10 +60,9 @@ class ListController extends Controller
     public function edit(string $id)
     {
         $listedit = Lists::find($id);
-        return view("layout.editlist", ["lists" => $listedit]);
+        return view("layout.editlist", ["list" => $listedit]);
     }
     
-
 
     public function update(Request $request, string $id)
     {
@@ -82,6 +81,6 @@ class ListController extends Controller
         $listedit->update($data);
     
         // Redirect ke halaman list yang sudah diperbarui
-        return redirect("/");
+        return redirect("/sidebar");
     }
 }

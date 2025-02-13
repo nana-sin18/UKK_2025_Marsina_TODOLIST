@@ -18,14 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 // arahkan ke controller
-Route::get('/', [ListController::class, "index"]);
+
+// list
+Route::get('/sidebar', [ListController::class, "index"]);
 Route::get('/list/{id}', [ListController::class, "show"]);
 Route::post('/tambahlist', [ListController::class, "store"]);
 Route::delete('/hapuslist/{id}', [ListController::class, "hapus"]);
-Route::get("/edit/{id_list}/editlist", [ListController::class, "edit"]);
-Route::get("/edit/{id}/editlist", [ListController::class, "update"]);
+Route::get("/list/{id_list}/editlist", [ListController::class, "edit"]);
+Route::put("/edit/{id}", [ListController::class, "update"]);
 
 
+
+// task
 Route::post('/tambahtask', [TaskController::class, "store"]);
 Route::delete('/hapustask/{id_list}', [TaskController::class, "hapus"]);
 Route::get("/task/{id}/edit", [TaskController::class, "edit"]);

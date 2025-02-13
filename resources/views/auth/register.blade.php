@@ -99,7 +99,7 @@
     <form class="form" action="{{ route('register') }}" method="POST">
         @csrf
         <span class="title">Sign up</span>
-        <span class="subtitle">Create a free account with your email.</span>
+        <span class="subtitle">Buat akun Anda</span>
         <div class="form-container">
             <input type="text" class="input" placeholder="Full Name" name="name">
             <input type="email" class="input" placeholder="Email" name="email">

@@ -30,8 +30,8 @@
 
     .sidebar {
       width: 250px;
-      background-color: #2c3e50;
-      color: #ecf0f1;
+      background-color: #6e4823;
+      color: #f7f2ed;
       display: flex;
       flex-direction: column;
       padding: 20px;
@@ -69,7 +69,7 @@
 
     .sidebar a {
       text-decoration: none;
-      color: #ecf0f1;
+      color: #f7f2ed;
       padding: 10px;
       border-radius: 4px;
       margin-bottom: 10px;
@@ -77,17 +77,17 @@
     }
 
     .sidebar a:hover {
-      background-color: #34495e;
+      background-color: #6e4823;
     }
 
     .content {
       flex-grow: 1;
-      background-color: #ecf0f1;
+      background-color: #f7f2ed;
       padding: 20px;
     }
 
     .content h1 {
-      color: #2c3e50;
+      color: #6e4823;
     }
 
     .content p {
@@ -109,7 +109,7 @@
     <h2>My Dashboard</h2>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #f7f2ed; color:#6e4823; border:none;">
       Tambah List
     </button>
 
@@ -118,7 +118,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5 text-primary" id="exampleModalLabel">Masukkan List</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #6e4823">Masukkan List</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div> 
           <form method="POST" action="{{ url ("/tambahlist") }}">
@@ -129,8 +129,8 @@
           </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Simpan List</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #6e4823; border:none;">Close</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #f7f2ed; color:#6e4823; border:none;">Simpan List</button>
           </div>
         </form>
         </div>
@@ -147,8 +147,10 @@
               
             @method("DELETE")
             @csrf
-            <button class= "btn btn-danger btn-sm">HAPUS</button>
-            <a href="{{ url("/list/$Lists->id/editlist") }}" class="btn btn-outline-success btn-sm">Edit</a>
+            <button class= "btn btn-sm" style="background-color: #f7f2ed; border:none; color:#6e4823; width:90px; height:30px;">HAPUS</button>
+            <a href="{{ url("/list/$Lists->id/editlist") }}" class="btn btn-sm" style="background-color: #f7f2ed; border:none; color:#6e4823; margin-top:20px; width:90px; height:30px; display: flex;
+  align-items: center;
+  justify-content: center;">Edit</a>
           </form>
           </li>
           

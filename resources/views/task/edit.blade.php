@@ -38,7 +38,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary" style="background-color:#6e4823; color:#f7f2ed; border:none;">Update</button>
         </div>
     </div>
 </form>

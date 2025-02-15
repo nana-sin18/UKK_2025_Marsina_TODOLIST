@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 // arahkan ke controller
 
 // list
-Route::get('/sidebar', [ListController::class, "index"]);
+Route::get('/', [ListController::class, "index"]);
 Route::get('/list/{id}', [ListController::class, "show"]);
 Route::post('/tambahlist', [ListController::class, "store"]);
 Route::delete('/hapuslist/{id}', [ListController::class, "hapus"]);
-Route::get("/list/{id_list}/editlist", [ListController::class, "edit"]);
+Route::get("/list/{id}/editlist", [ListController::class, "edit"]);
 Route::put("/edit/{id}", [ListController::class, "update"]);
 
 
@@ -33,8 +33,8 @@ Route::put("/edit/{id}", [ListController::class, "update"]);
 Route::post('/tambahtask', [TaskController::class, "store"]);
 Route::delete('/hapustask/{id_list}', [TaskController::class, "hapus"]);
 Route::get("/task/{id}/edit", [TaskController::class, "edit"]);
-Route::get("/task/{id_task}/edit", [TaskController::class, "edit"]);
-Route::put("/task/{id_task}", [TaskController::class, "update"]);
+Route::get("/task/{id}/edit", [TaskController::class, "edit"]);
+Route::put("/task/{id}", [TaskController::class, "update"]);
 
 Route::get('/login', function () {
     return view('auth.login');

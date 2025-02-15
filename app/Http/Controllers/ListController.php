@@ -29,6 +29,10 @@ class ListController extends Controller
 
     public function show($id){
         $lists = Lists::find($id);  
+
+        if(!$lists){
+            return redirect("/");
+        }
        
        $task = tsak::where("id_list", $id)->get();
        return view("task.index", ["data" => $lists, "todo" =>$task, "id_list"=>$lists->id]);
@@ -39,6 +43,7 @@ class ListController extends Controller
         
             $list = new Lists;
             $list-> nama = $request->nama_list;
+            
             $list->save();
 
             return redirect()->back();

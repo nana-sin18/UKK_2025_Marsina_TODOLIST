@@ -13,7 +13,8 @@ class TaskController extends Controller
         $task-> nama = $request->nama_task; 
         $task-> tanggal = $request->date; 
         $task-> id_list = $request->id; 
-        $task-> prioritas = $request->prioritas; 
+        $task-> prioritas = $request->prioritas;
+         
         
 
         $task->save();
@@ -42,6 +43,8 @@ public function edit(string $id_task)
                 "tanggal" => $request->input("tanggal"),
                 "prioritas" => $request->input("prioritas"),
             ];
+
+            $task->update($data);
             
             return redirect("list/$task->id_list");
           

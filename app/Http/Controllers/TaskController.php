@@ -11,10 +11,11 @@ class TaskController extends Controller
         
         $task = new tsak;
         $task-> nama = $request->nama_task; 
-        $task-> tanggal = $request->date; 
+        $task-> tanggal = $request->date;
+        $task-> status = "belum_selesai";
         $task-> id_list = $request->id; 
         $task-> prioritas = $request->prioritas;
-         
+        
         
 
         $task->save();
@@ -39,7 +40,6 @@ public function edit(string $id_task)
             $task = tsak::where('id_task', $id_task)->first(); 
             $data = [
                 "nama" => $request->input("nama"),
-                "status" => $request->input("status"),
                 "tanggal" => $request->input("tanggal"),
                 "prioritas" => $request->input("prioritas"),
             ];

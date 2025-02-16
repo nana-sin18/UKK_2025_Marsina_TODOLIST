@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 // arahkan ke controller
 
 // list
-Route::get('/', [ListController::class, "index"]);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [ListController::class, "index"]);
+});
 Route::get('/list/{id}', [ListController::class, "show"]);
 Route::post('/tambahlist', [ListController::class, "store"]);
 Route::delete('/hapuslist/{id}', [ListController::class, "hapus"]);

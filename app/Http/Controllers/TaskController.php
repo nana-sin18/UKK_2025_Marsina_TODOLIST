@@ -42,6 +42,7 @@ public function edit(string $id_task)
                 "nama" => $request->input("nama"),
                 "tanggal" => $request->input("tanggal"),
                 "prioritas" => $request->input("prioritas"),
+                "status" => $request->input("status"),
             ];
 
             $task->update($data);
@@ -54,4 +55,3 @@ public function edit(string $id_task)
             
         } 
             }
-     

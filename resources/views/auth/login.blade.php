@@ -73,6 +73,17 @@
           </div>
           <button>Log in</button>
       </form>
+      @if ($errors->any())
+    <div class="alert" style="margin-top: 15px; background-color:#f7f2ed; color:red;">
+        @foreach ($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+<br>
+<center>
+   <p>OR</P>
+  <a href="/register" style="text-decoration:none; font-wight:bold; color:#4a341a;">Register</a></center>
    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

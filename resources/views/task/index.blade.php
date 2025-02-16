@@ -13,15 +13,15 @@
                     <form action="{{ url('hapustask/'.$task->id_task) }}" method="POST" class="d-inline">
                         @method('DELETE')
                         @csrf
-                        <button class="btn btn-danger btn-sm ml-2">Hapus</button>
+                        <button class="btn btn-sm ml-2" style="background-color:#6e4823; color:#f7f2ed; border:none;" onclick="return confirm('Apakah Anda yakin ingin menghapus task ini?')">Hapus</button>
                     </form>
-                    <a href="{{ url('/task/'.$task->id_task.'/edit') }}" class="btn btn-outline-success btn-sm ml-2">Edit</a>
+                    <a href="{{ url('/task/'.$task->id_task.'/edit') }}" class="btn btn-sm ml-2" style="background-color:#6e4823; color:#f7f2ed; border:none;">Edit</a>
                 </li>
                 @endforeach
             </ul>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#tambahtask" style="background-color:#6e4823; color:#f7f2ed; border:none;">
-                Tambah Task
+                Tambah Task +
             </button>
         </div>
     </div>
@@ -31,23 +31,23 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-primary" id="exampleModalLabel">Tambah Task</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #6e4823;">Tambah Task</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="{{ url('/tambahtask') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="nama_task" class="form-label">Nama Task</label>
-                            <input type="text" class="form-control" name="nama_task" placeholder="Nama Task">
+                            <label for="nama_task" class="form-label" style="color: #6e4823;">Nama Task</label>
+                            <input type="text" class="form-control" name="nama_task" placeholder="Nama Task" required>
                         </div>
                         <div class="mb-3">
-                            <label for="date" class="form-label">Tanggal</label>
+                            <label for="date" class="form-label" style="color: #6e4823;">Tanggal</label>
                             <input type="date" class="form-control" name="date">
                         </div>
                         <div class="mb-3">
                             <input type="hidden" name="id" value="{{ $id_list }}">
-                            <label for="prioritas" class="form-label">Prioritas</label>
+                            <label for="prioritas" class="form-label" style="color: #6e4823;">Prioritas</label>
                             <select name="prioritas" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -57,8 +57,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Simpan Task</button>
+                        <button type="button" class="btn" data-bs-dismiss="modal" style="background-color:#6e4823; color:#f7f2ed; border:none;">Tutup</button>
+                        <button type="submit" class="btn" style="background-color:#6e4823; color:#f7f2ed; border:none;">Simpan Task</button>
                     </div>
                 </form>
             </div>

@@ -48,10 +48,10 @@ Route::get('/register', function () {
 
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth')->name('home');
+Route::get('tampilanlist', function () {
+    return view('layout.tampilanlist');
+})->middleware('auth')->name('layout.tampilanlist');
 
+Route::get('/logout', function () {return view('auth.logout');
+})->name('logout');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-

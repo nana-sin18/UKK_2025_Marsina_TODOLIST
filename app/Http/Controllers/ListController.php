@@ -86,6 +86,6 @@ class ListController extends Controller
         $listedit->update($data);
     
         // Redirect ke halaman list yang sudah diperbarui
-        return redirect("/sidebar");
+        return redirect("/");
     }
 }

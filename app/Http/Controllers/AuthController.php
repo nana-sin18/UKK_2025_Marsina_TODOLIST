@@ -17,6 +17,12 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:6',
+        ], [
+            'email.email' => 'Format email tidak valid!',
+            'email.unique' => 'Email ini sudah terdaftar, silakan gunakan email lain atau masuk dengan akun tersebut.',
+            'password.confirmed' => 'Konfirmasi password tidak cocok!',
+            'password.min' => 'Password minimal 6 karakter!',
+
         ]);
 
         // Membuat pengguna baru
@@ -29,7 +35,7 @@ class AuthController extends Controller
         // Setelah registrasi berhasil, langsung login
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('layout.tampilanlist');
     }
 
     // Fungsi untuk login
@@ -43,7 +49,7 @@ class AuthController extends Controller
 
         // Cek apakah data login benar
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->route('home');
+            return redirect()->route('layout.tampilanlist');
         }
 
         return back()->withErrors([
